@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Transport Scheduler</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+  <h2>🏥 Patient Transport Scheduler</h2>
+
+  <form method="POST" class="row g-3">
+    <input type="text" name="patient" placeholder="Patient Name" class="form-control" required>
+    <input type="text" name="time" placeholder="Pickup Time" class="form-control" required>
+    <input type="text" name="destination" placeholder="Destination" class="form-control" required>
+    <button class="btn btn-success mt-2">Add Schedule</button>
+  </form>
+
+  <table class="table table-hover mt-4">
+    <thead><tr><th>ID</th><th>Patient</th><th>Time</th><th>Destination</th></tr></thead>
+    <tbody>
+      {% for s in schedules %}
+      <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.patient }}</td>
+        <td>{{ s.time }}</td>
+        <td>{{ s.destination }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
